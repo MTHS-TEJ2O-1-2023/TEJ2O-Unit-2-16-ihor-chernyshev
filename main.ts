@@ -37,7 +37,7 @@ input.onButtonPressed(Button.A, function () {
 })
 
 // Button B
-input.onButtonPressed(Button.A, function () {
+input.onButtonPressed(Button.B, function () {
   // recieves info
   basic.showIcon(IconNames.Yes)
   basic.pause(500)
