@@ -12,10 +12,10 @@ let distance = 0
 radio.setGroup(8)
 basic.showIcon(IconNames.Happy)
 
+// button A
 input.onButtonPressed(Button.A, function () {
   while (true) {
     // checks the distance
-    basic.showIcon(IconNames.Happy)
     distance = sonar.ping(
       DigitalPin.P1,
       DigitalPin.P2,
@@ -28,13 +28,17 @@ input.onButtonPressed(Button.A, function () {
     if (distance < 10) {
       basic.showIcon(IconNames.Sad)
       radio.sendString('Too close!')
-      basic.pause(500)
+      basic.pause(9500)
     }
-    // recieves info
-    radio.onReceivedString(function (receivedString) {
-      basic.clearScreen()
-      basic.showString(receivedString)
-      basic.showIcon(IconNames.Happy)
-    })
   }
+})
+
+// Button B
+input.onButtonPressed(Button.A, function () {
+  // recieves info
+  radio.onReceivedString(function (receivedString) {
+    basic.clearScreen()
+    basic.showString(receivedString)
+    basic.showIcon(IconNames.Happy)
+  })
 })
