@@ -41,7 +41,7 @@ input.onButtonPressed(Button.B, function () {
   basic.showIcon(IconNames.Yes)
   basic.pause(500)
   basic.showIcon(IconNames.Happy)
-  // recieves info
+  // receives info
   radio.onReceivedString(function (receivedString) {
     basic.clearScreen()
     basic.showString(receivedString)
