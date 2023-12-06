@@ -38,10 +38,10 @@ input.onButtonPressed(Button.A, function () {
 
 // Button B
 input.onButtonPressed(Button.B, function () {
-  // recieves info
   basic.showIcon(IconNames.Yes)
   basic.pause(500)
   basic.showIcon(IconNames.Happy)
+  // recieves info
   radio.onReceivedString(function (receivedString) {
     basic.clearScreen()
     basic.showString(receivedString)
