@@ -20,9 +20,13 @@ input.onButtonPressed(Button.A, function () {
       DigitalPin.P2,
       PingUnit.Centimeters
     )
+    if (distance > 10) {
+      basic.showIcon(IconNames.Happy)
+    }
     if (distance < 10) {
       basic.showIcon(IconNames.Sad)
       radio.sendString('Too close!')
+      basic.pause(500)
     }
     radio.onReceivedString(function (receivedString) {
       basic.clearScreen()
