@@ -14,6 +14,9 @@ basic.showIcon(IconNames.Happy)
 
 // button A
 input.onButtonPressed(Button.A, function () {
+  basic.showIcon(IconNames.Yes)
+  basic.pause(500)
+  basic.showIcon(IconNames.Happy)
   while (true) {
     // checks the distance
     distance = sonar.ping(
@@ -36,6 +39,9 @@ input.onButtonPressed(Button.A, function () {
 // Button B
 input.onButtonPressed(Button.A, function () {
   // recieves info
+  basic.showIcon(IconNames.Yes)
+  basic.pause(500)
+  basic.showIcon(IconNames.Happy)
   radio.onReceivedString(function (receivedString) {
     basic.clearScreen()
     basic.showString(receivedString)
