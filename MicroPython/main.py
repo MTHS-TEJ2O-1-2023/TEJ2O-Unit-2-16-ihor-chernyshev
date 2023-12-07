@@ -40,7 +40,7 @@ while True:
             if dist_cm < 10:
                 display.show(Image.SAD)
                 radio.on()
-                radio.send('Too close!')
+                radio.send("Too close!")
                 sleep(9500)
     if button_b.was_pressed():
         display.show(Image.YES)
