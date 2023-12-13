@@ -17,19 +17,21 @@ radio.config(group=8)
 display.clear()
 display.show(Image.HAPPY)
 
+# sonar
 tring = pin1
 echo = pin2
 
 tring.write_digital(1)
 echo.read_digital()
 
-# finding the distance
 while True:
+    # button A
     if button_a.was_pressed():
         display.show(Image.YES)
         sleep(500)
         display.show(Image.HAPPY)
         while True:
+            # checks the distance
             tring.write_digital(1)
             tring.write_digital(0)
             micros = time_pulse_us(echo, 2)
@@ -37,16 +39,21 @@ while True:
             dist_cm = (t_echo / 2) * 34300
             if dist_cm > 10:
                 display.show(Image.HAPPY)
+            # sends info
             if dist_cm < 10:
                 display.show(Image.SAD)
                 radio.on()
                 radio.send("Too close!")
-                sleep(9500)
+                sleep(8800)
+    # button B
     if button_b.was_pressed():
         display.show(Image.YES)
         sleep(500)
         display.show(Image.HAPPY)
         radio.on()
+        # receives info
         while True:
             message = radio.receive()
-            display.scroll(message)
+            if message:
+                display.scroll(str(message))
+            display.show(Image.HAPPY)
